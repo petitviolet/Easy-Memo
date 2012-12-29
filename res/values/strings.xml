@@ -1,0 +1,41 @@
+<resources>
+
+    <string name="app_name">EasyMemo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_memo_pad">EasyMemo</string>
+    <string name="new_button_text">New Memo</string>
+    <string name="easy_memo_hint">簡単メモ</string>
+    <string name="easy_memo_title_hint">タイトル</string>
+    <string name="open_button_text">Memo List</string>
+    <string name="save_button_text">Save Memo</string>
+    <string name="memodb_empty">  No Memo</string>
+    <string name="memodb_delete">Delete</string>
+    <string name="memodb_confirm_delete">このメモを削除しますか?</string>
+    <string name="memodb_save">Save</string>
+    <string name="memodb_confirm_save">保存しますか？</string>
+    <string name="button_ok">O.K.</string>
+    <string name="button_cancel">Cancel</string>
+	<string name="menu_delete">Delete</string>
+	<string name="menu_save">Save</string>
+	<string name="menu_open">Open</string>
+	<string name="menu_new">New</string>
+	<string name="search_hint">Search</string>
+	<string name="search_button">Search!</string>
+	<string name="button_up">上のフォルダ</string>
+	<string name="menu_import">Import txt File</string>
+	<string name="menu_export">Export .txt File</string>
+	<string name="filelist_empty">No Such File</string>
+	<string name="toast_no_external_storage">Cannot Use External Storage</string>
+	<string name="toast_file_name_error">ファイル名が不正です</string>
+	<string name="complete_save">メモを保存しました</string>
+	<string name="complete_update">メモを上書きしました</string>
+	<string name="not_save_no_title">タイトルがありません</string>
+	<string name="not_save_no_memo">本文がありません</string>
+	<string name="menu_encode">Encode</string>
+	<string name="menu_sjis">SHIFT_JIS</string>
+	<string name="description">ファイルアイコン</string>
+	<string name="TextView1">textview_1</string>
+	<string name="TextView2">textview_2</string>
+	
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="wine">#8d3043</color> 
+    <color name="darkcyan">#008B8B</color>
+    <color name="darkolievegreen">#556B2F</color>
+    <color name="olivedrab">#6B8E23</color>
+	<color name="midnigheblue">#191970</color>
+	<color name="navy">#000080</color>
+	<color name="slateblue">#6A5ACD</color>
+	<color name="darkred">#8B0000</color>
+	<color name="lightgray">#D3D3D3</color>
+	<color name="silver">#C0C0C0</color>
+	<color name="whitesmoke">#F5F5F5</color>
+	<color name="dark">#333333</color>
+	<color name="darkgray">#696969</color>
+	<color name="darksilver">#9F9F9F</color>
+	<color name="firebrick">#B22222</color>
+	<color name="darkseagreen">#8FBC8F</color>
+	<color name="darkviolet">#9400D3</color>
+	<color name="indigo">#4B0082</color>
+	
+</resources>
