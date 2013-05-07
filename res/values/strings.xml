@@ -14,8 +14,8 @@
     <string name="memodb_confirm_delete">このメモを削除しますか?</string>
     <string name="memodb_save">Save</string>
     <string name="memodb_confirm_save">保存しますか？</string>
-    <string name="button_ok">O.K.</string>
-    <string name="button_cancel">Cancel</string>
+    <string name="button_ok">Yes</string>
+    <string name="button_cancel">No</string>
 	<string name="menu_delete">Delete</string>
 	<string name="menu_save">Save</string>
 	<string name="menu_open">Open</string>

@@ -41,7 +41,6 @@ import android.text.TextWatcher;
 import android.util.Log;
 
 public class EasyMemoActivity extends Activity implements OnClickListener{
-//public class MemoPadActivity extends Activity{
 	boolean memoChanged = false;
 	String fn, temp_fn, id;
 	String encode = "SHIFT-JIS";
@@ -103,16 +102,12 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
 				} else {
 					flag = false;
 					memoChanged = false;
-				}
-				// TODO 自動生成されたメソッド・スタブ				
+				}				
 			}
         };
         et_memo.addTextChangedListener(tw);
         Log.d("MemoPadActivity", "Create MemoPadActivity" );
     }
-    /**
-     * キーイベントが発火した時
-     */
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {// 戻るボタン
@@ -139,7 +134,6 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
 		if(v == button_new){
 		//新規
 			flag = true;
@@ -157,7 +151,6 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
 	
     @Override
 	protected void onStop() {
-		// TODO 自動生成されたメソッド・スタブ
 		super.onStop();
 		Log.d("MemoPadActivity", "onStop_start");
 		EditText et_memo = (EditText)findViewById(R.id.easy_memo);
@@ -179,7 +172,6 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
     
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// TODO 自動生成されたメソッド・スタブ
     	MenuInflater mi = getMenuInflater();
     	mi.inflate(R.menu.menu, menu);
     	if(encode.equals("SHIFT_JIS")){
@@ -190,7 +182,6 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
     
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// TODO 自動生成されたメソッド・スタブ
 		super.onActivityResult(requestCode, resultCode, data);
 		if(resultCode == RESULT_OK){
 			EditText et_memo = (EditText)findViewById(R.id.easy_memo);
@@ -235,7 +226,6 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// TODO 自動生成されたメソッド・スタブ
 		//EditText et_memo = (EditText)findViewById(R.id.easy_memo);
         EditText et_title = (EditText)findViewById(R.id.easy_memo_title);
         //Toast _toast = Toast.makeText(this,  Environment.getExternalStorageState(), Toast.LENGTH_SHORT);
@@ -248,23 +238,6 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
 		case R.id.menu_delete:
 			delete();
 			break;
-		/*case R.id.menu_import:
-			Intent i = new Intent(this, MemoList.class);
-			Log.d("menu_import", Environment.getExternalStorageState());
-			try{
-				if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())){
-					if (memoChanged) saveText();
-					Log.d("menu_import", "1");
-					i = new Intent(this, FilePicker.class);
-					startActivityForResult(i, 1);				
-				} else {
-					Toast toast = Toast.makeText(this,  R.string.toast_no_external_storage, Toast.LENGTH_SHORT);
-					toast.show();
-				};
-			} catch (Exception e){
-				e.printStackTrace();
-			}
-			break; */
 		case R.id.menu_export:
 			try{
 				if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())){
@@ -318,16 +291,14 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
 			final AlertDialog ad = ab.create();
 			ad.show();
 			id = "";
-			memoChanged = false;
 		} else {
 			EditText et_memo = (EditText)findViewById(R.id.easy_memo);
 			EditText et_title = (EditText)findViewById(R.id.easy_memo_title);     
 			et_title.setText("");
 			et_memo.setText("");
 			id = "";
-			memoChanged = false;
 		}
-		memoChanged = false;
+		memoChanged = false;  // 無駄に保存したりしないように
 	}
 	
 	void saveText(){
@@ -346,7 +317,6 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
     		//String ts = sdf.format(date);
     		Calendar calendar = Calendar.getInstance();
     		String ts = sdf.format(calendar.getTime()); 
-            Log.d( "MemoPadActivity.java", "getTime" );       	
         	MemoDBHelper memos = new MemoDBHelper(this);
         	SQLiteDatabase db = memos.getWritableDatabase();
         	ContentValues values = new ContentValues();
@@ -374,10 +344,8 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
         	}
         	memos.close();
         } else {
-			/*if (title.length() <= 0){
-				Toast toast = Toast.makeText(this,  R.string.not_save_no_title, Toast.LENGTH_SHORT);
-				toast.show();
-			} else if (memo.length() <= 0){ */
+        	// titleが無くても「無題」にするだけ
+        	// 本文が無ければ保存はしない
         	if (memo.length() <= 0){
 				Toast toast = Toast.makeText(this,  R.string.not_save_no_memo, Toast.LENGTH_SHORT);
 				toast.show();
@@ -411,6 +379,7 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
 		} else {
 			startMemoList();
 		}
+		memoChanged = false;
 	}
 	
 	protected void startMemoList(){
