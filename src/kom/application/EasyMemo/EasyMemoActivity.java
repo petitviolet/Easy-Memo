@@ -62,6 +62,7 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
         //memoChanged = false;
         et_title.setText(pref.getString("title", ""));
         et_memo.setText(pref.getString("memo", ""));
+        id = pref.getString("id", "");
         et_memo.setSelection(pref.getInt("cursor", 0));
         button_new = (Button)findViewById(R.id.new_button);
         button_new.setOnClickListener(this);
@@ -161,6 +162,7 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
         //title.replaceAll("\\n|\\s", " ");
         //editor.putString("title", et_title.getText().toString());
         editor.putString("title", title);
+        editor.putString("id", id);
         editor.putString("memo", et_memo.getText().toString());
         editor.putInt("cursor", Selection.getSelectionStart(et_memo.getText()));
         editor.putBoolean("memoChanged", memoChanged);
@@ -290,14 +292,13 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
 			ab.setCancelable(true);
 			final AlertDialog ad = ab.create();
 			ad.show();
-			id = "";
 		} else {
 			EditText et_memo = (EditText)findViewById(R.id.easy_memo);
 			EditText et_title = (EditText)findViewById(R.id.easy_memo_title);     
 			et_title.setText("");
 			et_memo.setText("");
-			id = "";
 		}
+		//id = "";
 		memoChanged = false;  // –³‘Ê‚É•Û‘¶‚µ‚½‚è‚µ‚È‚¢‚æ‚¤‚É
 	}
 	
