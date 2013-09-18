@@ -3,7 +3,7 @@ package kom.application.EasyMemo;
 public class SelectedMemo {
 
 	public SelectedMemo() {
-		// TODO 自動生成されたコンストラクター・スタブ
+		// TODO
 	}
 	private int memoID;
 	private int selectedflag;

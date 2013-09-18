@@ -12,12 +12,10 @@ public class MemoDBHelper extends SQLiteOpenHelper {
 	
 	public MemoDBHelper(Context context) {
 		super(context, name, factory, version);
-		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		// TODO 自動生成されたメソッド・スタブ
 		String sql = "CREATE TABLE memoDB("
 				+ android.provider.BaseColumns._ID
 				+ " INTEGER PRIMARY KEY AUTOINCREMENT, title Text, memo TEXT, date Text);";
@@ -27,7 +25,6 @@ public class MemoDBHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		// TODO 自動生成されたメソッド・スタブ
 	}
 
 }
