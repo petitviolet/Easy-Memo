@@ -33,7 +33,7 @@ public class MemoList extends ListActivity {
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		// TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+		// TODO
 		Log.d( "MemoList", "onListItem_start" );
 		super.onListItemClick(l, v, position, id);
 		memos = new MemoDBHelper(this);
@@ -62,7 +62,7 @@ public class MemoList extends ListActivity {
 	
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
-		// TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+		// TODO
 		AdapterContextMenuInfo info = (AdapterContextMenuInfo)item.getMenuInfo();
 		Cursor cursor = getMemos();
 		// startManagingCursor(cursor);
@@ -91,7 +91,7 @@ public class MemoList extends ListActivity {
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
-		// TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+		// TODO
 		super.onCreateContextMenu(menu, v, menuInfo);
 		MenuInflater mi = getMenuInflater();
 		mi.inflate(R.menu.context, menu);
@@ -99,7 +99,7 @@ public class MemoList extends ListActivity {
     
 	/*@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+		// TODO
 		Log.d("MemoList", "onCreate_start");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.memolist);
@@ -109,7 +109,7 @@ public class MemoList extends ListActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+		// TODO ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½\ï¿½bï¿½hï¿½Eï¿½Xï¿½^ï¿½u
 		Log.d("MemoList", "onCreate_start");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.memolist);
@@ -123,21 +123,21 @@ public class MemoList extends ListActivity {
 			ArrayList<Integer> IDs = new ArrayList<Integer>();	
 			
 			public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-				// ƒAƒNƒVƒ‡ƒ“ƒAƒCƒeƒ€‘I‘ğ
+				// ï¿½Aï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½
 				return true;
 			}		 		        
 			public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-				// ƒAƒNƒVƒ‡ƒ“ƒ‚[ƒh‰Šú‰»ˆ—	
+				// ï¿½Aï¿½Nï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
 				return true;
 			}		        
 			public void onDestroyActionMode(ActionMode mode) {
-				// Œˆ’èƒ{ƒ^ƒ“‰Ÿ‰º
+				// ï¿½ï¿½ï¿½ï¿½{ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				Log.d("MemoList", "DestroyAction-start");
-				//deleteList‚É‚Ímemolist“à‚Ì‰½”Ô–Ú‚Ì—v‘f‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚é‚©Atrue‚ªŠi”[‚³‚ê‚Ä‚¢‚éB
+				//deleteListï¿½É‚ï¿½memolistï¿½ï¿½ï¿½Ì‰ï¿½ï¿½Ô–Ú‚Ì—vï¿½fï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½é‚©ï¿½Atrueï¿½ï¿½ï¿½iï¿½[ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½B
 				AlertDialog.Builder ab = new AlertDialog.Builder(MemoList.this);
 				final int checkedCount = getListView().getCheckedItemCount();
 				ab.setTitle(R.string.memodb_delete);
-				ab.setMessage("‘I‘ğ‚µ‚½"+Integer.toString(checkedCount)+"ŒÂ‚Ìƒƒ‚‚ğíœ‚µ‚Ü‚·‚©?");
+				ab.setMessage("ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"+Integer.toString(checkedCount)+"ï¿½Â‚Ìƒï¿½ï¿½ï¿½ï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½?");
 				ab.setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener(){
 					public void onClick(DialogInterface dialog, int which){
 						int i;
@@ -146,8 +146,8 @@ public class MemoList extends ListActivity {
 						SQLiteDatabase db = memos.getWritableDatabase();
 						//for (i = 0; i < deleteList.size(); i++){
 						for (i = 0; i < IDs.size(); i++){
-							//2012”N11Œ22“ú
-							//•¡”‘I‘ğ‚µ‚½ƒƒ‚‚ğíœ‚µ‚½‚¢
+							//2012ï¿½N11ï¿½ï¿½22ï¿½ï¿½
+							//ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 							//cursor.moveToPosition(deleteList[i].position);
 							int j;
 							for(j=0;j<=i;j++){
@@ -169,11 +169,11 @@ public class MemoList extends ListActivity {
 				Log.d("MemoList", "DestroyAction-finish");
 			}
 			public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-				// TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+				// TODO
 				return false;
 			}
 			public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
-				// TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu			
+				// TODO
 				Log.d("MemoList", "onItem,id:"+id+",position:"+position);
 				//IDs[i] = (int) id;
 				IDs.add((int)id);
@@ -225,8 +225,8 @@ public class MemoList extends ListActivity {
 	private void showMemos(Cursor cursor){
 		Log.d("MemoList", "showMemos_start");
 		if(cursor != null){
-			String[] from = {"title", "date"};
-			int[] to = {R.id.info_title, R.id.info_date};
+			String[] from = {"title", "date", "memo"};
+			int[] to = {R.id.info_title, R.id.info_date, R.id.info_memo};
 			//int[] to = {android.R.id.text1};
 			//int[] to = {android.R.id.text1, android.R.id.text2};
 			//ListAdapter adapter = new ListAdapter(this, )
@@ -236,7 +236,8 @@ public class MemoList extends ListActivity {
 			adapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {  
 	            public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
 	            	Log.d("MemoList", "columnIndex = "+columnIndex);
-	                if (columnIndex == 0) { //‚±‚Ì‚Ö‚ñ‚ğ˜M‚ê‚Î•¡”‘I‘ğ‚Ìíœ‚à‚Å‚«‚»‚¤11/27 
+                    view.setBackgroundResource(R.drawable.list_background_selector);
+	                if (columnIndex == 0) { //ï¿½ï¿½ï¿½Ì‚Ö‚ï¿½ï¿½Mï¿½ï¿½Î•ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½Ìíœï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½ï¿½11/27 
 	                	int Color = getResources().getColor(R.color.black);
 	                    ((TextView)view).setTextColor(Color);
 	                    
@@ -265,7 +266,7 @@ public class MemoList extends ListActivity {
 			ArrayAdapter<String> adapter =
 					new ArrayAdapter<String>(this, R.layout.memo_line);
 					//new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1, cursor, from ,to, 0);
-			//adapter‚ÉDB‚©‚ç•¶š—ñ‚ğ’Ç‰Á
+			//adapterï¿½ï¿½DBï¿½ï¿½ï¿½ç•¶ï¿½ï¿½ï¿½ï¿½ï¿½Ç‰ï¿½
 			adapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {  
 	              
 	            public boolean setViewValue(View view, Cursor cursor, int columnIndex) {  
@@ -306,7 +307,7 @@ public class MemoList extends ListActivity {
 	/*
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+		// TODO
     	MenuInflater mi = getMenuInflater();
     	mi.inflate(R.menu.list_menu, menu);
 		return super.onCreateOptionsMenu(menu);
@@ -314,7 +315,7 @@ public class MemoList extends ListActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+		// TODO
         Log.d( "MemoPadActivity", "onOptions" );
 		switch(item.getItemId()){
 		case R.id.list_menu_delete:
@@ -328,7 +329,7 @@ public class MemoList extends ListActivity {
 	
 	@Override
 	protected void onDestroy() {
-		// TODO ©“®¶¬‚³‚ê‚½ƒƒ\ƒbƒhEƒXƒ^ƒu
+		// TODO
 		super.onDestroy();
 		Log.d("MemoList", "onDestroy");
 		//cursor.close();

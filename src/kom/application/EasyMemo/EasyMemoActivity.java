@@ -98,7 +98,7 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
 			public void afterTextChanged(Editable s) {}
 			public void beforeTextChanged(CharSequence s, int start, int count,	int after) {}
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
-				if (flag == false){ //newText()‚Ì‚ ‚Æ‚ÍmemoChanged‚¶‚á‚È‚¢
+				if (flag == false){ //newText()ã®ã‚ã¨ã¯memoChangedã˜ã‚ƒãªã„
 					memoChanged = true;
 				} else {
 					flag = false;
@@ -111,8 +111,8 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
     }
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {// –ß‚éƒ{ƒ^ƒ“
-            if (event.getAction() == KeyEvent.ACTION_DOWN) {// ‰Ÿ‚³‚ê‚½
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {// æˆ»ã‚‹ãƒœã‚¿ãƒ³
+            if (event.getAction() == KeyEvent.ACTION_DOWN) {// æŠ¼ã•ã‚ŒãŸæ™‚
             	if (temp == 2){
             		if (memoChanged == true){
             			saveText();
@@ -126,7 +126,7 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
             		startActivityForResult(i, 2);
             	}
     			//startActivity(i);
-                //webView.goBack();// WebView‚ğ–ß‚·
+                //webView.goBack();// WebViewã‚’æˆ»ã™
             }
             return true;
         }
@@ -136,16 +136,16 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		if(v == button_new){
-		//V‹K
+		//æ–°è¦
 			flag = true;
 			newText();
 		}else if(v == button_save){
-			//•Û‘¶
+			//
 			try{
 				saveText();
 			}catch(Exception e){e.printStackTrace();};
 		}else if(v == button_open){
-			//“Ç‚İ‚İ
+			//
 			readMemo();
 		};
 	}
@@ -209,8 +209,7 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
 	        	}
 	        	break;
 	        case 2:	        	
-	        	// Back‚µ‚Ä‚à‚¤ˆê“x“¯‚¶ƒtƒ@ƒCƒ‹‚ğŠJ‚¢‚Ä‚Ü‚½Back‚·‚é‚ÆI—¹
-	        	// ˆá‚¤ƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚Î‚à‚¤ˆê“xBacko—ˆ‚é
+	        	// Back
 	        	et_title.setText(data.getStringExtra("title"));
 	        	et_memo.setText(data.getStringExtra("text"));
 	        	memoChanged = false;
@@ -299,7 +298,7 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
 			et_memo.setText("");
 		}
 		//id = "";
-		memoChanged = false;  // –³‘Ê‚É•Û‘¶‚µ‚½‚è‚µ‚È‚¢‚æ‚¤‚É
+		memoChanged = false;  // ï¿½ï¿½ï¿½Ê‚É•Û‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è‚µï¿½È‚ï¿½ï¿½æ‚¤ï¿½ï¿½
 	}
 	
 	void saveText(){
@@ -309,10 +308,8 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
         String memo = et_memo.getText().toString();
         Log.d( "MemoPadActivity.java", "saveText_start" );
         if(memo.length() > 0){
-    		// Œ»İ‚Ì‚ğæ“¾
-    		// •\¦Œ`®‚ğİ’è
         	if (title.length() == 0){
-        		title = "–³‘è";
+        		title = "ï¿½ï¿½ï¿½ï¿½";
         	}
     		SimpleDateFormat sdf = new SimpleDateFormat("yyyy'-'MM'-'dd' 'kk':'mm");
     		//String ts = sdf.format(date);
@@ -345,8 +342,7 @@ public class EasyMemoActivity extends Activity implements OnClickListener{
         	}
         	memos.close();
         } else {
-        	// title‚ª–³‚­‚Ä‚àu–³‘èv‚É‚·‚é‚¾‚¯
-        	// –{•¶‚ª–³‚¯‚ê‚Î•Û‘¶‚Í‚µ‚È‚¢
+        	// title
         	if (memo.length() <= 0){
 				Toast toast = Toast.makeText(this,  R.string.not_save_no_memo, Toast.LENGTH_SHORT);
 				toast.show();
