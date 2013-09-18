@@ -1,5 +1,6 @@
 package kom.application.EasyMemo;
 
+import android.view.*;
 import kom.application.EasyMemo.R;
 
 import android.annotation.TargetApi;
@@ -12,11 +13,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -231,23 +228,29 @@ public class MemoList extends ListActivity {
 			//int[] to = {android.R.id.text1, android.R.id.text2};
 			//ListAdapter adapter = new ListAdapter(this, )
 			SimpleCursorAdapter adapter =
-					new SimpleCursorAdapter(this, R.layout.memo_line, cursor, from, to, 0);
+					new SimpleCursorAdapter(this, R.layout.memo_line, cursor, from, to, 0){
+                        @Override
+                        public View getView(int position, View convertView, ViewGroup parent){
+                            final View row = super.getView(position, convertView, parent);
+                            row.setBackgroundResource(R.drawable.list_background_selector);
+                            return row;
+                        }
+                    };
 					//new SimpleCursorAdapter(this, android.R.layout.simple_list_item_multiple_choice, cursor, from ,to, 0){
-			adapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {  
-	            public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
-	            	Log.d("MemoList", "columnIndex = "+columnIndex);
-                    view.setBackgroundResource(R.drawable.list_background_selector);
-	                if (columnIndex == 0) { //���̂ւ��M��Ε����I���̍폜���ł�����11/27 
-	                	int Color = getResources().getColor(R.color.black);
-	                    ((TextView)view).setTextColor(Color);
-	                    
-	                } else {
-	                	int Color = getResources().getColor(R.color.darkgray);
-	                    ((TextView)view).setTextColor(Color);
-	                }
-	                return false;  
-	            }
-            });  
+			adapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {
+                public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
+                    Log.d("MemoList", "columnIndex = " + columnIndex);
+                    if (columnIndex == 0) { //���̂ւ��M��Ε����I���̍폜���ł�����11/27
+                        int Color = getResources().getColor(R.color.black);
+                        ((TextView) view).setTextColor(Color);
+
+                    } else {
+                        int Color = getResources().getColor(R.color.darkgray);
+                        ((TextView) view).setTextColor(Color);
+                    }
+                    return false;
+                }
+            });
 			setListAdapter(adapter);
 		}
 		memos.close();
